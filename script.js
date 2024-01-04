@@ -79,5 +79,7 @@ function playRound() {
         userPick.innerHTML = playerSelectionFinal;
         computerPick.innerHTML = computerSelection;
         result.innerHTML = "You win! Scissors beats paper";
+    } else {
+        result.innerHTML = "Invalid input. Enter Rock, Paper or Scissors (case insensitive)";
     }
 }
