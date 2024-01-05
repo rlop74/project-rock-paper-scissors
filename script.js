@@ -77,9 +77,25 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
-// function game() {
-//     playerPoints = 0;
-//     computerPoints = 0;
+function game() {
+    let playerPoints = 0;
+    let computerPoints = 0;
+    let winner;
 
-//     for (i = 1; i <= 5; i++) playRound();
-// }
+    while (playerPoints < 4 || computerPoints < 4) {
+        result = playRound();
+        
+        if (playerPoints <= 4 || computerPoints <= 4 ) {
+            if (result.includes("win")) {
+                playerPoints++;
+            } else if (result.includes("lose")) {
+                computerPoints++
+            }
+        } else {
+            console.log("we have a winner");
+            break;
+        }    
+        console.log(playerPoints, computerPoints);
+    }
+
+}
