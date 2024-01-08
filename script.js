@@ -55,7 +55,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
         console.log(`Computer: ${computerSelection}`);
         console.log(`Player: ${playerSelection}`);
-        result ="You win! Paper beats Rock";
+        result = "You win! Paper beats Rock";
     }
     // if player chooses scissors
     else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
@@ -80,22 +80,22 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerPoints = 0;
     let computerPoints = 0;
-    let winner;
+    let winner = 5;
 
-    while (playerPoints < 4 || computerPoints < 4) {
+    for (let i = 0; i < 5; i++) {
         result = playRound();
-        
-        if (playerPoints <= 4 || computerPoints <= 4 ) {
-            if (result.includes("win")) {
-                playerPoints++;
-            } else if (result.includes("lose")) {
-                computerPoints++
-            }
-        } else {
-            console.log("we have a winner");
-            break;
-        }    
-        console.log(playerPoints, computerPoints);
+
+        if (result.includes("win")) {
+            playerPoints++;
+        } else if (result.includes("lose")) {
+            computerPoints++;
+        } else if (result.includes("tie")) {
+            i--;
+        }
+        console.log(`Player: ${playerPoints} \n Computer: ${computerPoints}`);
     }
 
+    if (playerPoints > computerPoints) {
+        console.log("Player wins!");
+    } else console.log("Computer wins!");
 }
