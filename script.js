@@ -102,5 +102,19 @@ const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
         }
     }
 
+    roundResultMessage();
+
+    function roundResultMessage() {
+        const message = document.querySelector(".roundResult-message");
+
+        if (winner === "player") {
+            message.textContent = `${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`;
+        } else if (winner === "computer") {
+            message.textContent = `${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`;
+        } else if (winner === "tie") {
+            message.textContent = `${playerSelection.toUpperCase()} ties with ${computerSelection.toUpperCase()}`;
+        }
+    }
+
 }));
 
