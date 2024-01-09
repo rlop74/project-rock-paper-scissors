@@ -1,5 +1,89 @@
-.game-container {
+* {
+    margin: 0;
+}
+
+.flex-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100vh;
 }
+
+    .header-container {
+        flex: .25;
+        border: 2px solid black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .header-container h1 {
+            font-size: 40px;
+        }
+
+    .arena-container {
+        flex: 1;
+        border: 2px solid black;
+
+        display: flex;
+    }
+        .player-container {
+            flex: 1;
+            border: 2px solid black;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+            .player-weapon {
+                height: 200px;
+                width: 200px;
+                border: 2px solid black;
+            }
+
+        .results-container {
+            flex: 1;
+            border: 2px solid black;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+            .winner {
+                font-size: 50px;
+            }
+
+            .winner-description {
+                font-size: 20px;
+            }
+
+        .computer-container {
+            flex: 1;
+            border: 2px solid black;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+            .computer-weapon {
+                height: 200px;
+                width: 200px;
+                border: 2px solid black;
+            }
+
+    .weapons-container {
+        flex: .75;
+        border: 2px solid black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20%;
+    }
+
+        .weapons-container button {
+            height: 200px;
+            width: 200px;
+        }
