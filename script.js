@@ -27,25 +27,27 @@ const btns = document.querySelectorAll(".userChoice");
 const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
     const playerSelection = btn.id;
+    let winner = "";
+
     playRound();
     
     function playRound() {
     
         if (playerSelection === computerSelection) {
-            console.log("tie");
+            winner = "tie";
         }
         else if (
             playerSelection === "rock" && computerSelection === "scissors" || 
             playerSelection === "paper" && computerSelection === "rock" || 
             playerSelection === "scissors" && computerSelection === "paper"
         ) {
-            console.log("You win!")
+            winner = "player";
         } else if (
             playerSelection === "scissors" && computerSelection === "rock" || 
             playerSelection === "rock" && computerSelection === "paper" || 
             playerSelection === "paper" && computerSelection === "scissors"
         ) {
-            console.log("You lose!");
+            winner = "computer";
         }
     }
 
@@ -78,6 +80,25 @@ const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
                 computerWeapon.textContent = "SCISSORS";
                 break;
 
+        }
+    }
+
+    roundWinner();
+
+    function roundWinner() {
+        const roundResult = document.querySelector("#roundResult");
+        
+
+        switch(winner) {
+            case "player":
+                roundResult.textContent = "You win!";
+                break;
+            case "computer":
+                roundResult.textContent = "You lose!";
+                break;
+            case "tie":
+                roundResult.textContent = "It's a tie!";
+                break;
         }
     }
 
