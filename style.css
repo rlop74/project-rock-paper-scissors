@@ -39,6 +39,10 @@
                 height: 200px;
                 width: 200px;
                 border: 2px solid black;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
         .results-container {
@@ -50,7 +54,7 @@
             justify-content: center;
             align-items: center;
         }
-            .winner {
+            #winner {
                 font-size: 50px;
             }
 
@@ -71,6 +75,10 @@
                 height: 200px;
                 width: 200px;
                 border: 2px solid black;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
     .weapons-container {
@@ -83,7 +91,7 @@
         gap: 20%;
     }
 
-        .weapons-container button {
+        .weapons-container .userChoice {
             height: 200px;
             width: 200px;
         }

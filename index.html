@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
@@ -13,24 +14,24 @@
         <div class="arena-container">
             <div class="player-container">
                 <div class="player-weapon"></div>
-                <p>Player: 3</p>
+                <p id="playerPoints">Player: 3</p>
             </div>
 
             <div class="results-container">
-                <p class="winner">You won!</p>
+                <p id="winner"></p>
                 <p class="winner-description">Rock beats scissors</p>
             </div>
 
             <div class="computer-container">
                 <div class="computer-weapon"></div>
-                <p>Computer: 2</p>
+                <p id="computerPoints">Computer: 2</p>
             </div>
         </div>
 
         <div class="weapons-container">
-            <button>Rock</button>
-            <button>Paper</button>
-            <button>Scissors</button>
+            <button class="userChoice" id="rock">rock</button>
+            <button class="userChoice" id="paper">paper</button>
+            <button class="userChoice" id="scissors">scissors</button>
         </div>
 
     </div>

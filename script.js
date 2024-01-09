@@ -23,9 +23,63 @@ Make your function’s playerSelection parameter case-insensitive (so users can 
 Account for TIES by re-playing the round.
 */
 
+const btns = document.querySelectorAll(".userChoice");
+const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
+    const computerSelection = getComputerChoice();
+    const playerSelection = btn.id;
+    playRound();
+    
+    function playRound() {
+    
+        if (playerSelection === computerSelection) {
+            console.log("tie");
+        }
+        else if (
+            playerSelection === "rock" && computerSelection === "scissors" || 
+            playerSelection === "paper" && computerSelection === "rock" || 
+            playerSelection === "scissors" && computerSelection === "paper"
+        ) {
+            console.log("You win!")
+        } else if (
+            playerSelection === "scissors" && computerSelection === "rock" || 
+            playerSelection === "rock" && computerSelection === "paper" || 
+            playerSelection === "paper" && computerSelection === "scissors"
+        ) {
+            console.log("You lose!");
+        }
+    }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        
-    }    
-}
+    updateChoice();
+
+    function updateChoice() {
+        playerWeapon = document.querySelector(".player-weapon");
+        computerWeapon = document.querySelector(".computer-weapon");
+
+        switch(playerSelection) {
+            case "rock":
+                playerWeapon.textContent = "ROCK";
+                break;
+            case "paper":
+                playerWeapon.textContent = "PAPER";
+                break;
+            case "scissors":
+                playerWeapon.textContent = "SCISSORS";
+                break;
+        }
+
+        switch(computerSelection) {
+            case "rock":
+                computerWeapon.textContent = "ROCK";
+                break;
+            case "paper":
+                computerWeapon.textContent = "PAPER";
+                break;
+            case "scissors":
+                computerWeapon.textContent = "SCISSORS";
+                break;
+
+        }
+    }
+
+}));
+
