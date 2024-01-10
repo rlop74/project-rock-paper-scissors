@@ -38,7 +38,7 @@ const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
     let winner = "";
 
     playRound();
-    
+
     function playRound() {
     
         if (playerSelection === computerSelection) {
@@ -112,6 +112,10 @@ const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
                 case "tie":
                     roundResult.textContent = "It's a tie!";
                     break;
+            }
+
+            if (playerScore === 5 || computerScore === 5) {
+                roundResult.textContent = `The winner is ${winner.toUpperCase()}`;
             }
         }
 
