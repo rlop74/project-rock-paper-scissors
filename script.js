@@ -23,6 +23,14 @@ Make your function’s playerSelection parameter case-insensitive (so users can 
 Account for TIES by re-playing the round.
 */
 
+let playerPoints = document.querySelector("#playerPoints");
+    let computerPoints = document.querySelector("#computerPoints");
+    let playerScore = 0;
+    let computerScore = 0;
+
+    playerPoints.textContent = playerScore;
+    computerPoints.textContent = computerScore;
+
 const btns = document.querySelectorAll(".userChoice");
 const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
     const computerSelection = getComputerChoice();
@@ -42,79 +50,85 @@ const updateChoice = btns.forEach(btn => btn.addEventListener("click", () => {
             playerSelection === "scissors" && computerSelection === "paper"
         ) {
             winner = "player";
+            playerScore++;
         } else if (
             playerSelection === "scissors" && computerSelection === "rock" || 
             playerSelection === "rock" && computerSelection === "paper" || 
             playerSelection === "paper" && computerSelection === "scissors"
         ) {
             winner = "computer";
-        }
-    }
-
-    updateChoice();
-
-    function updateChoice() {
-        playerWeapon = document.querySelector(".player-weapon");
-        computerWeapon = document.querySelector(".computer-weapon");
-
-        switch(playerSelection) {
-            case "rock":
-                playerWeapon.textContent = "ROCK";
-                break;
-            case "paper":
-                playerWeapon.textContent = "PAPER";
-                break;
-            case "scissors":
-                playerWeapon.textContent = "SCISSORS";
-                break;
+            computerScore++;
         }
 
-        switch(computerSelection) {
-            case "rock":
-                computerWeapon.textContent = "ROCK";
-                break;
-            case "paper":
-                computerWeapon.textContent = "PAPER";
-                break;
-            case "scissors":
-                computerWeapon.textContent = "SCISSORS";
-                break;
-
-        }
-    }
-
-    roundWinner();
-
-    function roundWinner() {
-        const roundResult = document.querySelector("#roundResult");
+        playerPoints.textContent = playerScore;
+        computerPoints.textContent = computerScore;
         
 
-        switch(winner) {
-            case "player":
-                roundResult.textContent = "You win!";
-                break;
-            case "computer":
-                roundResult.textContent = "You lose!";
-                break;
-            case "tie":
-                roundResult.textContent = "It's a tie!";
-                break;
+        updateChoice();
+
+        function updateChoice() {
+            playerWeapon = document.querySelector(".player-weapon");
+            computerWeapon = document.querySelector(".computer-weapon");
+
+            switch(playerSelection) {
+                case "rock":
+                    playerWeapon.textContent = "ROCK";
+                    break;
+                case "paper":
+                    playerWeapon.textContent = "PAPER";
+                    break;
+                case "scissors":
+                    playerWeapon.textContent = "SCISSORS";
+                    break;
+            }
+
+            switch(computerSelection) {
+                case "rock":
+                    computerWeapon.textContent = "ROCK";
+                    break;
+                case "paper":
+                    computerWeapon.textContent = "PAPER";
+                    break;
+                case "scissors":
+                    computerWeapon.textContent = "SCISSORS";
+                    break;
+
+            }
         }
-    }
 
-    roundResultMessage();
+        roundWinner();
 
-    function roundResultMessage() {
-        const message = document.querySelector(".roundResult-message");
+        function roundWinner() {
+            const roundResult = document.querySelector("#roundResult");
+            
 
-        if (winner === "player") {
-            message.textContent = `${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`;
-        } else if (winner === "computer") {
-            message.textContent = `${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`;
-        } else if (winner === "tie") {
-            message.textContent = `${playerSelection.toUpperCase()} ties with ${computerSelection.toUpperCase()}`;
+            switch(winner) {
+                case "player":
+                    roundResult.textContent = "You win!";
+                    break;
+                case "computer":
+                    roundResult.textContent = "You lose!";
+                    break;
+                case "tie":
+                    roundResult.textContent = "It's a tie!";
+                    break;
+            }
         }
+
+        roundResultMessage();
+
+        function roundResultMessage() {
+            const message = document.querySelector(".roundResult-message");
+
+            if (winner === "player") {
+                message.textContent = `${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`;
+            } else if (winner === "computer") {
+                message.textContent = `${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`;
+            } else if (winner === "tie") {
+                message.textContent = `${playerSelection.toUpperCase()} ties with ${computerSelection.toUpperCase()}`;
+            }
+        }
+    
     }
 
 }));
-
